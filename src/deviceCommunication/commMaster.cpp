@@ -27,7 +27,10 @@
 #include "commMaster.h"
 #include <QDebug>
 #include <QSerialPortInfo>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothDeviceInfo>
 #include "commUSB.h"
+#include "commBLE.h"
 #include "command.h"
 
 namespace comm {
@@ -46,7 +49,7 @@ bool CommMaster::addConnection(DeviceInfo identifier) {
             break;
 
         case ConnType::BLE:
-            /// @todo add BLE ctor
+            singleDevice = new CommBLE(identifier);
             break;
 
         default:
@@ -90,7 +93,12 @@ QList<DeviceInfo>& CommMaster::getAvailableDevices() {
     }
 
     /// @todo remove already connected devices from this list
-    /// @todo Add code for BLE pull
+    
+    // BLE device discovery
+    // Note: BLE discovery is asynchronous and requires event loop processing
+    // For now, BLE devices must be added manually using their device address
+    // Future enhancement: Implement async device discovery with signals/slots
+    /// @todo Implement asynchronous BLE device discovery
 
     return availableDevice;
 }
