@@ -48,13 +48,13 @@ namespace comm {
 namespace BLEDefinitions {
     // Service UUID for LineScale 3
     // Note: These are placeholder UUIDs and should be updated with actual LineScale 3 UUIDs
-    const QString SERVICE_UUID = "{0000ffe0-0000-1000-8000-00805f9b34fb}";
+    const QString SERVICE_UUID = "0000ffe0-0000-1000-8000-00805f9b34fb";
     
     // Characteristic UUID for receiving data from device
-    const QString CHARACTERISTIC_RX_UUID = "{0000ffe1-0000-1000-8000-00805f9b34fb}";
+    const QString CHARACTERISTIC_RX_UUID = "0000ffe1-0000-1000-8000-00805f9b34fb";
     
     // Characteristic UUID for sending data to device
-    const QString CHARACTERISTIC_TX_UUID = "{0000ffe2-0000-1000-8000-00805f9b34fb}";
+    const QString CHARACTERISTIC_TX_UUID = "0000ffe2-0000-1000-8000-00805f9b34fb";
 }
 
 /**

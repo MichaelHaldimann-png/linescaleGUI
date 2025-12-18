@@ -42,10 +42,11 @@ bool CommBLE::connectDevice() {
     }
 
     // Create BLE device info from the device address (stored in identifier.ID)
+    // Device name and class are optional as they're not used for connection
     QBluetoothDeviceInfo deviceInfo = QBluetoothDeviceInfo(
         QBluetoothAddress(identifier.ID), 
-        "", 
-        0);
+        "LineScale3", 
+        QBluetoothDeviceInfo::MiscellaneousDevice);
 
     // Create controller for the BLE device
     bleController = QLowEnergyController::createCentral(deviceInfo);
@@ -76,7 +77,7 @@ bool CommBLE::connectDevice() {
 
 void CommBLE::disconnectDevice() {
     if (bleService) {
-        delete bleService;
+        // Service will be deleted when controller is deleted
         bleService = nullptr;
     }
 
