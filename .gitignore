@@ -79,3 +79,4 @@ docs/html
 
 build/
 lib/QCustomPlot
+_codeql_detected_source_root
